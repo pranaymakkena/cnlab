@@ -1,0 +1,7 @@
+12. Operating System Detection using Nmap
+
+Command:
+nmap -O <IP address>
+
+Example:
+nmap -O 192.168.1.1

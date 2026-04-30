@@ -1,0 +1,16 @@
+10. Wireshark
+i. Packet Capture Using Wireshark
+ii. Starting Wireshark
+iii. Viewing Captured Traffic
+iv. Analysis and Statistics & Filters.
+
+Steps:
+- Open Wireshark
+- Select network interface (WiFi/Ethernet)
+- Click Start Capture
+- Generate traffic (open browser/ping)
+- Stop capture
+- Use filters like:
+  ip.addr == 192.168.1.1
+  tcp
+- Analyze packets in packet details pane

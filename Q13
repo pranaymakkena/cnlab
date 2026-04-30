@@ -1,0 +1,25 @@
+13. NS2 Simulator
+
+i. Introduction:
+NS2 is a network simulator used for analyzing protocols.
+
+ii. Steps:
+- Install NS2
+- Write TCL script
+- Run using:
+  ns file.tcl
+
+iii. Packet Drop:
+Use trace file (.tr) and analyze dropped packets
+
+iv. TCP/UDP Drop:
+Simulate agents and measure packet loss
+
+v. Congestion:
+Create multiple nodes and links
+
+vi. Throughput:
+Calculate using received packets/time
+
+vii. Performance:
+Compare transmission rates and delays

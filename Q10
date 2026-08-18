@@ -1,16 +1,49 @@
-10. Wireshark
+# 10. Wireshark – Important Commands
 i. Packet Capture Using Wireshark
 ii. Starting Wireshark
 iii. Viewing Captured Traffic
 iv. Analysis and Statistics & Filters.
 
-Steps:
-- Open Wireshark
-- Select network interface (WiFi/Ethernet)
-- Click Start Capture
-- Generate traffic (open browser/ping)
-- Stop capture
-- Use filters like:
-  ip.addr == 192.168.1.1
-  tcp
-- Analyze packets in packet details pane
+# i. Packet Capture
+wireshark
+
+# Capture packets from an interface
+tshark -i eth0
+
+# Save captured packets
+tshark -i eth0 -w capture.pcap
+
+
+# ii. Starting Wireshark
+wireshark capture.pcap
+
+
+# iii. Viewing Captured Traffic
+tshark -r capture.pcap
+
+# View detailed packet information
+tshark -r capture.pcap -V
+
+
+# iv. Analysis, Statistics & Filters
+
+# TCP traffic
+tcp
+
+# UDP traffic
+udp
+
+# HTTP traffic
+http
+
+# DNS traffic
+dns
+
+# Filter by IP address
+ip.addr == 192.168.1.1
+
+# Filter by port
+tcp.port == 80
+
+# Protocol statistics
+tshark -r capture.pcap -z io,phs

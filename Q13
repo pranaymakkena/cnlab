@@ -1,25 +1,54 @@
-13. NS2 Simulator
+# 13. NS2 Simulator – Important Commands
 
-i. Introduction:
-NS2 is a network simulator used for analyzing protocols.
+# i. Check NS2 installation
+ns
 
-ii. Steps:
-- Install NS2
-- Write TCL script
-- Run using:
-  ns file.tcl
+# Run NS2 simulation
+ns simulation.tcl
 
-iii. Packet Drop:
-Use trace file (.tr) and analyze dropped packets
+# Open NAM visualization
+nam simulation.nam
 
-iv. TCP/UDP Drop:
-Simulate agents and measure packet loss
 
-v. Congestion:
-Create multiple nodes and links
+# ii. Find Number of Packets Dropped
+ns drop.tcl
+grep "^d" drop.tr | wc -l
 
-vi. Throughput:
-Calculate using received packets/time
 
-vii. Performance:
-Compare transmission rates and delays
+# iii. Packets Dropped by TCP/UDP
+ns tcp.tcl
+grep "^d" tcp.tr | wc -l
+
+ns udp.tcl
+grep "^d" udp.tr | wc -l
+
+
+# iv. Packets Dropped due to Congestion
+ns congestion.tcl
+grep "^d" congestion.tr | wc -l
+
+
+# v. Compare Data Rate & Throughput
+ns throughput.tcl
+grep "^r" throughput.tr | wc -l
+
+
+# vi. Plot Congestion for Source/Destination
+ns congestion.tcl
+nam congestion.nam
+
+
+# vii. Performance of Packet Transmission
+ns performance.tcl
+
+# Transmitted packets
+grep "^+" performance.tr | wc -l
+
+# Received packets
+grep "^r" performance.tr | wc -l
+
+# Dropped packets
+grep "^d" performance.tr | wc -l
+
+# Open visualization
+nam performance.nam

@@ -1,7 +1,22 @@
-12. Operating System Detection using Nmap
+# 12. Operating System Detection using Nmap
 
-Command:
-nmap -O <IP address>
+# Basic OS detection
+nmap -O <IP>
 
-Example:
-nmap -O 192.168.1.1
+# OS + service detection
+nmap -O -sV <IP>
+
+# OS detection with verbose output
+nmap -O -v <IP>
+
+# Aggressive OS detection
+nmap -A <IP>
+
+# OS detection on a subnet
+nmap -O 192.168.1.0/24
+
+# OS detection without ping
+nmap -O -Pn <IP>
+
+# OS detection + default scripts
+nmap -O -sC <IP>

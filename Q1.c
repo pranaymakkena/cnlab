@@ -1,21 +1,32 @@
 /*
-1. Implement the data link layer framing methods such as character,
+1. Implement the data link layer framing methods such as character count,
    character-stuffing and bit stuffing.
 */
 
 #include <stdio.h>
 #include <string.h>
 
+/* Character Count */
+void charCount(char data[]) {
+    int count = strlen(data);
+
+    printf("Character Count: %d\n", count);
+}
+
 /* Character Stuffing */
 void charStuffing(char data[]) {
     char result[200] = "DLESTX";
+
     for (int i = 0; i < strlen(data); i++) {
         if (data[i] == 'D' && data[i+1] == 'L' && data[i+2] == 'E') {
             strcat(result, "DLE");
         }
+
         strncat(result, &data[i], 1);
     }
+
     strcat(result, "DLEETX");
+
     printf("Character Stuffed: %s\n", result);
 }
 
@@ -29,6 +40,7 @@ void bitStuffing(char data[]) {
 
         if (data[i] == '1') {
             count++;
+
             if (count == 5) {
                 result[j++] = '0';
                 count = 0;
@@ -37,6 +49,7 @@ void bitStuffing(char data[]) {
             count = 0;
         }
     }
+
     result[j] = '\0';
 
     printf("Bit Stuffed: %s\n", result);
@@ -48,6 +61,7 @@ int main() {
     printf("Enter data: ");
     scanf("%s", data);
 
+    charCount(data);
     charStuffing(data);
     bitStuffing(data);
 
